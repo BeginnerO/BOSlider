@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<HTML lang='ko'>
+	<meta charset='UTF-8'>
+	<HEAD>
+		<TITLE>
+			BOSlider
+		</TITLE>
+
+		<!--CSS CDN-->
+		<link rel='stylesheet' type='text/css' href='css/BOSlider.css'>
+
+	</HEAD>
+	<BODY style='margin:0px;'>
+		<div class='bo-slider other'>
+			<ul class='bo-content'>
+				<li class='bo-each' style='background-image:url("resources/1.jpg");'>
+					<div>
+							<h3 style='color:#fff'>당신의 음악을 공유하세요.</h3>
+							<a href="#" class="bo-button-soft">Go</a>
+						</div>
+				</li>
+				<li class='bo-each' style='background-image:url("resources/2.jpg");'>
+					<div>
+							<h3 style='color:#fff'>아직 발표되지 않은 새 음악을 감상하세요.</h3>
+							<a href="#" class="bo-button-sharp">Go</a>
+						</div>
+				</li>
+				<li class='bo-each' style='background-image:url("resources/3.jpg");'>
+					<div>
+							<h3 style='color:#fff'>당신이 좋아하는 뮤지션을 후원하세요.</h3>
+							<a href="#" class="bo-button-sharp">Go</a>
+						</div>
+				</li>
+				<li class='bo-each' style='background-image:url("resources/4.jpg");'>
+					<div>
+							<h3 style='color:#fff'>후원했던 음악을 가장 먼저 음원으로 들어보세요.</h3>
+							<a href="#" class="bo-button-sharp">Go</a>
+						</div>
+				</li>
+			</ul>
+		</div>
+		</div>
+	</BODY>
+	<!--Jquery CDN-->
+	<script src='js/jquery.js'></script>
+
+	<!--Javascript CDN-->
+	<script src='js/BOSlider.js'></script>
+
+	<script>
+		$('.other').boslider({
+			Height:'250px',
+			Content : {
+				1 : '120px',
+				2 : '150px',
+			},
+			Reactivity : false,
+			AutoSlide :{
+				On : true,
+			},
+			Nav : {
+				On : true,
+			},
+			Mover : {
+				On : true,
+				Gradient : false,
+				Width: 50,
+			}
+		}).boButton({'background-color':'#fff','font-size':"60px"},[1],'soft')
+		.boButton({'background-color':'#fff','font-size':"60px"},[2])
+		.boTypo({
+			'color':'#000',
+			'font-size':'600px',
+		},
+		{
+			min_width:500,
+			max_width:800,
+		});
+	</script>
+</HTML>
