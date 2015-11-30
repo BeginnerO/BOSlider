@@ -1,4 +1,4 @@
-/*BOSlider 0.7.0 
+/*BOSlider 0.8.1
 *
 *
 *Copyright (C) 2015 BeginnerO
@@ -132,7 +132,7 @@
 		var Mover_Options = $.extend({},Mover_Default,Options.Mover);
 
 		if(Mover_Options.On){
-			var Mover_Content = '<div class="bo-mover bo-left-mover"><span>&lang;</span></div><div class="bo-mover bo-right-mover"><span>&rang;</span></div>';
+			var Mover_Content = '<div class="bo-mover bo-left-mover"><span>&#60;</span></div><div class="bo-mover bo-right-mover"><span>&#62;</span></div>';
 
 			$(this).append(Mover_Content);
 			$(this).children('.bo-mover')
@@ -145,7 +145,7 @@
 				.css('margin-top',(Window_Height - This_Height)/2+'px');
 
 			//Mover Click Event Binding
-			$(this).find('.bo-left-mover').on('click',function(){
+			$((this).find('.bo-left-mover')).on('click',function(){
 				bo_Slide(bo_content.children('.bo-active').index()-1);
 			});
 			$(this).find('.bo-right-mover').on('click',function(){
@@ -234,7 +234,7 @@
 
 			if(bo_window_width <= 679){
 				$(this).children('.bo-nav')
-					.css('top','85%');
+					.css('top','80%');
 				$(this).children('ul').children('li').children('div')
 				.children('.bo-button-sharp')
 					.css('font-size','15px')
@@ -338,37 +338,37 @@
 		},
 	}//boslider default setting.
 
-	$.fn.boButton = function(css_rule,other_properties){
-		var parent = $(this),
-			bo_slide_num = parent.children('ul').children('li').length,
-			button_defaults = {
-				Page : [],
-				Which : 'sharp',
-				Min_Width : 0,
-				Max_Width : 10000,
-			};
+	// $.fn.boButton = function(css_rule,other_properties){
+	// 	var parent = $(this),
+	// 		bo_slide_num = parent.children('ul').children('li').length,
+	// 		button_defaults = {
+	// 			Page : [],
+	// 			Which : 'sharp',
+	// 			Min_Width : 0,
+	// 			Max_Width : 10000,
+	// 		};
 
-		for(var each_page = 1;each_page <= bo_slide_num;each_page++){
-			button_defaults.Page.push(each_page);
-		}
-		button_defaults = $.extend({},button_defaults,other_properties);
-		button_defaults.Page.forEach(function(value,index,ar){
-			for(var css_name in css_rule){
-				var cover_width = parent.outerWidth();
-				if(button_defaults.Min_Width < cover_width && cover_width < button_defaults.Max_Width){
-					var css_value = css_rule[css_name];
-					parent.children('ul')
-					.children('li:nth-child('+value+')')
-					.children('div')
-					.children('.bo-button-'+button_defaults.Which)
-						.css(css_name,css_value);
-					}
-				}
-		});
-		return this.each(function(){
-			$(this);
-		});
-	}
+	// 	for(var each_page = 1;each_page <= bo_slide_num;each_page++){
+	// 		button_defaults.Page.push(each_page);
+	// 	}
+	// 	button_defaults = $.extend({},button_defaults,other_properties);
+	// 	button_defaults.Page.forEach(function(value,index,ar){
+	// 		for(var css_name in css_rule){
+	// 			var cover_width = parent.outerWidth();
+	// 			if(button_defaults.Min_Width < cover_width && cover_width < button_defaults.Max_Width){
+	// 				var css_value = css_rule[css_name];
+	// 				parent.children('ul')
+	// 				.children('li:nth-child('+value+')')
+	// 				.children('div')
+	// 				.children('.bo-button-'+button_defaults.Which)
+	// 					.css(css_name,css_value);
+	// 				}
+	// 			}
+	// 	});
+	// 	return this.each(function(){
+	// 		$(this);
+	// 	});
+	// }
 
 	$.fn.boTypo = function(css_rule,other_properties){
 
