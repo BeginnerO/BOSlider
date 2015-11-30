@@ -19,7 +19,7 @@ Documentation: http://beginnero.github.io/
 ##Start Quickly
 git clone https://github.com/beginnero/bolisder.git
 
-'''
+"""
 &lt;html&gt;
 	&lt;!--CSS Link--&gt;
 	&lt;link rel='stylesheet' type='text/css' href='css/BOSlider.css'&gt;
@@ -31,7 +31,7 @@ git clone https://github.com/beginnero/bolisder.git
 	&lt;!--Javascript Link--&gt;
 	&lt;script src='js/BOSlider.js'>&lt;/script&gt;
 &lt;/html&gt;
-'''
+"""
 
 
 ##LICENSE
