@@ -20,17 +20,17 @@ Documentation: http://beginnero.github.io/
 git clone https://github.com/beginnero/bolisder.git
 
 '''
-<html>
-	<!--CSS Link-->
-	<link rel='stylesheet' type='text/css' href='css/BOSlider.css'>
-	<body>
-		<!--Your Contents may be here.-->
-	</body>
-	<!--Jquery Link-->
-	<script src='js/jquery.js'></script>
-	<!--Javascript Link-->
-	<script src='js/BOSlider.js'></script>
-</html>
+&lt;html&gt;
+	&lt;!--CSS Link--&gt;
+	&lt;link rel='stylesheet' type='text/css' href='css/BOSlider.css'&gt;
+	&lt;body&gt;
+		&lt;!--Your Contents may be here.--&gt;
+	&lt;/body&gt;
+	&lt;!--Jquery Link--&gt;
+	&lt;script src='js/jquery.js'>&lt;/script&gt;
+	&lt;!--Javascript Link--&gt;
+	&lt;script src='js/BOSlider.js'>&lt;/script&gt;
+&lt;/html&gt;
 '''
 
 
