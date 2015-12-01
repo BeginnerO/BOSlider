@@ -1,4 +1,4 @@
-/*BOSlider 0.8.1
+/*BOSlider 0.9.0
 *
 *
 *Copyright (C) 2015 BeginnerO
@@ -63,59 +63,86 @@
 					.css('height',(Window_Height+"px"));
 			}
 		}
+		//Slide Type
+		function Type_Slide(page_index,bo_active_content){
+			if(bo_active_content.index() < page_index){
+				bo_content.children('li:lt('+(page_index)+')')
+					.css('z-index','-1')
+					.css('transform','translateX(-100%)')
+				.find('*').not('div')
+					.css('opacity','0')
+					.css('transform','translateX(-110px)');
+
+				bo_active_content
+					.css('z-index','1')
+					.removeClass('bo-active')
+					.css('transform','translateX(-100%)')
+				.find('*').not('div')
+					.css('opacity','0')
+					.css('transform','translateX(-110px)');
+
+				bo_content.children('li:nth-child('+(page_index+1)+')')
+					.css('z-index','1')
+					.addClass('bo-active')
+					.css('transform','translateX(0)')
+				.find('*').not('div')
+					.css('opacity','1')
+					.css('transform','translateX(0)');
+
+			}else if(bo_active_content.index() > page_index){
+				bo_content.children('li:gt('+(page_index)+')')
+					.css('z-index','-1')
+					.css('transform','translateX(100%)')
+				.find('*').not('div')
+					.css('opacity','0')
+					.css('transform','translateX(110px)');
+
+				bo_active_content
+					.css('z-index','1')
+					.removeClass('bo-active')
+					.css('transform','translateX(100%)')
+				.find('*').not('div')
+					.css('opacity','0')
+					.css('transform','translateX(110px)');
+
+
+				bo_content.children('li:nth-child('+(page_index+1)+')')
+					.css('z-index','1')
+					.addClass('bo-active')
+					.css('transform','translateX(0)')
+				.find('*').not('div')
+					.css('opacity','1')
+					.css('transform','translateX(0)');
+			}
+		}
+
+		//Fade Type
+		function Type_Fade(page_index,bo_active_content){
+			bo_content.children('li:nth-child('+(page_index+1)+')')
+				.css('z-index','1')
+				.css('opacity','1')
+				.addClass('bo-active');
+			setTimeout(function(){
+				bo_active_content
+					.css('opacity','0')
+					.removeClass('bo-active');
+			},10);
+			bo_content.children('li:nth-child('+(page_index+1)+')').css('z-index','1');
+			bo_active_content.css('z-index','-1');
+		}
 		//Slide Function
 		function bo_Slide(page_index){
 			if(page_index < 0) page_index = bo_slide_num-1;
 			else if(page_index == bo_slide_num) page_index = 0;
 
 			var bo_active_content = bo_content.children('.bo-active');
-			var bo_active_index = bo_content.index();
-
-			if(bo_active_content.index() < page_index){
-				bo_active_content
-					.removeClass('bo-active')
-					.css('transform','translateX(-100%)')
-				.find('*').not('div')
-					.css('opacity','0')
-					.css('transform','translateX(-110px)');
-
-				bo_content.children('li:lt('+(page_index+1)+')')
-					.css('transform','translateX(-100%)')
-				.find('*').not('div')
-					.css('opacity','0')
-					.css('transform','translateX(-110px)');
-
-				bo_content.children('li:nth-child('+(page_index+1)+')')
-					.addClass('bo-active')
-					.css('transform','translateX(0)')
-				.find('*').not('div')
-					.delay(2000)
-					.css('opacity','1')
-					.css('transform','translateX(0)');
-
-			}else if(bo_active_content.index() > page_index){
-				bo_active_content
-					.removeClass('bo-active')
-					.css('transform','translateX(100%)')
-				.find('*').not('div')
-					.css('opacity','0')
-					.css('transform','translateX(110px)');
-
-				bo_content.children('li:gt('+(page_index)+')')
-					.css('transform','translateX(100%)')
-				.find('*').not('div')
-					.css('opacity','0')
-					.css('transform','translateX(110px)');
-
-				bo_content.children('li:nth-child('+(page_index+1)+')')
-					.addClass('bo-active')
-					.css('transform','translateX(0)')
-				.find('*').not('div')
-					.delay(2000)
-					.css('opacity','1')
-					.css('transform','translateX(0)');
-
+			if(page_index == bo_active_content.index()) return false;
+			if(Options.Type == 'Slide'){
+				Type_Slide(page_index,bo_active_content);
+			}else if(Options.Type == 'Fade'){
+				Type_Fade(page_index,bo_active_content);
 			}
+			
 			if(Options.Nav.On){
 				var bo_active_nav = bo_nav.children('.bo-nav-active');
 				bo_active_nav.removeClass('bo-nav-active');
@@ -169,18 +196,23 @@
 		for(var bo_i = 1; bo_i <= bo_slide_num;bo_i++){
 			var bo_current = bo_content.children('li:nth-child('+bo_i+')');
 			if(bo_current.hasClass('bo-active')) continue;
-			if(bo_current.index() < bo_content.find('.bo-active').index()) 
+			if(Options.Type == 'Slide'){
+				if(bo_current.index() < bo_content.find('.bo-active').index()) 
+					bo_current
+						.css('transform','translateX(-100%)')
+					.find('*').not('div')
+						.css('opacity','0')
+						.css('transform','translateX(-110px)');
+				else 
+					bo_current
+						.css('transform','translateX(100%)')
+					.find('*').not('div')
+						.css('opacity','0')
+						.css('transform','translateX(110px)');
+			}else if(Options.Type == 'Fade'){
 				bo_current
-					.css('transform','translateX(-100%)')
-				.find('*').not('div')
-					.css('opacity','0')
-					.css('transform','translateX(-110px)');
-			else 
-				bo_current
-					.css('transform','translateX(100%)')
-				.find('*').not('div')
-					.css('opacity','0')
-					.css('transform','translateX(110px)');
+					.css('opacity','0');
+			}
 		}
 
 		/*Navigation*/
@@ -312,6 +344,7 @@
 	}//function boslider 
 
 	$.fn.boslider.defaults = {
+		Type : 'Slide',
 		Reactivity : true,
 		Min_Height : 0,
 		Max_Height : 1920,

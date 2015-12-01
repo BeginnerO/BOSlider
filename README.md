@@ -1,12 +1,17 @@
-BOSLIDER 
-VERSION 0.8.0 BETA
+#BOSLIDER 
+VERSION - 0.9.0 BETA
 
-Note that this version is beta. Therefore syntax may be change by updating new version.
+You can make slide flexiblely.
+
+Note that this version is beta. Therefore **syntax may be change by updating new version.**
 
 ##Direct Download
 Not Supported yet.
 
-Documentation: http://beginnero.github.io/
+Documentation Link: http://beginnero.github.io/
+##0.9.0 Updated
++ Slide reliability is improved.
++ Slide Type is newly added.
 
 ##0.8.0 Updated
 + Button Changer is removed.
@@ -19,6 +24,7 @@ Documentation: http://beginnero.github.io/
 ##Start Quickly
 git clone https://github.com/beginnero/bolisder.git
 
+HTML SCHEMA
 ```html
 <html>
 	<!--CSS Link-->
@@ -34,5 +40,5 @@ git clone https://github.com/beginnero/bolisder.git
 ```
 
 
-##LICENSE
+#LICENSE
 BOSlider is under MIT License.
