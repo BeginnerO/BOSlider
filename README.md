@@ -3,7 +3,7 @@ VERSION - 0.9.0 BETA
 
 You can make slide flexiblely.
 
-Note that this version is beta. Therefore **syntax may be change by updating new version.**
+Note that this version is beta. Therefore **syntax may be changed by updating new version.**
 
 ##Direct Download
 Not Supported yet.
